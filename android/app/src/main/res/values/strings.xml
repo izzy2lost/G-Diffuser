@@ -14,6 +14,8 @@
     <string name="mods_title">Packs</string>
     <string name="romhacks_title">ROM Hacks</string>
     <string name="saves_title">Saves</string>
+    <string name="tracks_title">Tracks</string>
+    <string name="files_title">Files</string>
 
     <!-- Launcher -->
     <string name="launcher_choose">Choose…</string>

@@ -288,8 +288,8 @@ android {
         applicationId = "com.gdiffuser.android"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.0.1"
 
         ndk {
             // arm64 only, and not merely for size. The port maps the N64's 32-bit address space

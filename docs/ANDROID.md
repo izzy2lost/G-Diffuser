@@ -45,7 +45,7 @@ After that the launcher goes straight to the game on every later launch.
 
 ## Where files live
 
-Everything is in the app's external files directory, which a file manager can reach:
+Everything is in the app's external files directory:
 
 ```
 Android/data/com.gdiffuser.android/files/
@@ -61,6 +61,7 @@ Android/data/com.gdiffuser.android/files/
   mods/                        drop .o2r packs here
   saves/                       fzerox.sav, the 64DD journal, achievements
   ghosts/                      exported .gdg replays
+  exports/                     .gdxc tracks, machines and Edit Cup bundles
   gdiffuser.cfg.json           settings, including every enhancement toggle
 ```
 
@@ -69,6 +70,21 @@ from the in-game menu, writes one archive covering both folders.
 
 > The 64DD journal in `saves/` is the important one. On an Expansion Kit build it, not the
 > cartridge save, is where course edits, custom machines and most records live.
+
+Android 11 and later stop file managers from opening `Android/data`. There are two ways around that:
+
+- **Files** (Packs → Files) browses the whole folder in-app. It can import files or a whole folder
+  into any directory, export a file, export a folder as a .zip, create folders and delete.
+- The system **Files** app lists **G-Diffuser** as a location in its sidebar (as does every app's
+  file picker), with full read and write access. Copy files in and out there like any other folder.
+
+### Custom tracks
+
+Tracks, machines and Edit Cup bundles are shared as `.gdxc` files. Open **Packs → Tracks** and use
+**Import .gdxc**, then install it onto the disk in game: **Menu → Workshop → Content Library →
+Import**. Anything you export from the Content Library appears on the Tracks screen too, and
+**Export** there copies it out to share. Importing checks the file's header, so it still works when
+a browser has renamed the download (`edit-cup.gdxc.bin`, say).
 
 ## Controls
 

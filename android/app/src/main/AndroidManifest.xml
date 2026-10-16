@@ -38,6 +38,10 @@
         everything the game writes lives in the app's own external files directory
         (Android/data/com.gdiffuser.android/files) — which is also where packs are dropped in
         and where a file manager can reach the saves.
+
+        Android 11+ hides that folder from file managers, so GameFilesProvider below offers it to
+        the system Files app and every document picker instead, and the Files screen
+        (FilesActivity) copies in and out of it through the picker.
     -->
 
     <application
@@ -109,6 +113,37 @@
             android:label="@string/romhacks_title"
             android:screenOrientation="sensorLandscape"
             android:theme="@android:style/Theme.Material.NoActionBar" />
+
+        <activity
+            android:name=".TracksActivity"
+            android:exported="false"
+            android:label="@string/tracks_title"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@android:style/Theme.Material.NoActionBar" />
+
+        <activity
+            android:name=".FilesActivity"
+            android:exported="false"
+            android:label="@string/files_title"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@android:style/Theme.Material.NoActionBar" />
+
+        <!--
+            The game directory as a location in the system Files app. MANAGE_DOCUMENTS is held
+            only by the system's documents UI, so nothing else can bind to it directly; apps reach
+            it through the picker, with the grant the user gives there. The authority suffix must
+            match GameFilesProvider.AUTHORITY_SUFFIX.
+        -->
+        <provider
+            android:name=".GameFilesProvider"
+            android:authorities="${applicationId}.files"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="android.permission.MANAGE_DOCUMENTS">
+            <intent-filter>
+                <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
+            </intent-filter>
+        </provider>
 
         <activity
             android:name=".SavesActivity"

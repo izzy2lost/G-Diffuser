@@ -121,7 +121,9 @@ class ModsActivity : ComponentActivity() {
         }
         actions.addView(button("Import pack") { importArchives.launch(arrayOf("*/*")) })
         actions.addView(button("ROM hacks") { startActivity(Intent(this, RomHacksActivity::class.java)) })
+        actions.addView(button("Tracks") { startActivity(Intent(this, TracksActivity::class.java)) })
         actions.addView(button("Saves") { startActivity(Intent(this, SavesActivity::class.java)) })
+        actions.addView(button("Files") { startActivity(Intent(this, FilesActivity::class.java)) })
         actions.addView(View(this), LinearLayout.LayoutParams(0, 1, 1f))
         actions.addView(button("Restart game") { restartGame() })
         actions.addView(button("Done") { finish() })
